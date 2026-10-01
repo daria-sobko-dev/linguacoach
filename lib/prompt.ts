@@ -1,4 +1,4 @@
-import type { GenerateRequest } from './schema';
+import type { GenerateRequest } from './schema.js';
 
 export function buildPrompt({ text, level, nativeLanguage, count }: GenerateRequest): string {
   return `You are an experienced language tutor. A learner at CEFR level ${level} wants to learn vocabulary from the text below.

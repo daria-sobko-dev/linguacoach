@@ -1,4 +1,4 @@
-import type { GenerateResponse } from './schema';
+import type { GenerateResponse } from './schema.js';
 
 // Returned when no API key is configured, so the UI can still be explored.
 export const DEMO_RESPONSE: GenerateResponse = {

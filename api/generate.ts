@@ -1,4 +1,4 @@
-import { generate, HttpError } from '../lib/core';
+import { generate, HttpError } from '../lib/core.js';
 
 // Vercel serverless function: POST /api/generate
 export default async function handler(req: any, res: any) {

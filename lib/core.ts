@@ -1,6 +1,6 @@
-import { RequestSchema, ResponseSchema, type GenerateResponse } from './schema';
-import { buildPrompt } from './prompt';
-import { DEMO_RESPONSE } from './demo';
+import { RequestSchema, ResponseSchema, type GenerateResponse } from './schema.js';
+import { buildPrompt } from './prompt.js';
+import { DEMO_RESPONSE } from './demo.js';
 
 export class HttpError extends Error {
   constructor(public status: number, message: string) { super(message); }
