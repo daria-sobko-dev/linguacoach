@@ -72,7 +72,7 @@ export default function App() {
 
       {data && (
         <section>
-          {data.demo && <p className="notice">Demo mode: no API key configured, showing sample output.</p>}
+          {data.demo && <p className="notice">{data.notice ?? 'Demo mode: no API key configured, showing sample output.'}</p>}
           <p className="muted">Detected: <b>{data.detectedLanguage}</b> · Text level: <b>{data.textLevel}</b></p>
           <div className="tabs">
             <button className={tab === 'cards' ? 'active' : ''} onClick={() => setTab('cards')}>Flashcards ({data.cards.length})</button>

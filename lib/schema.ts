@@ -35,4 +35,4 @@ export const ResponseSchema = z.object({
 });
 export type Card = z.infer<typeof CardSchema>;
 export type QuizItem = z.infer<typeof QuizSchema>;
-export type GenerateResponse = z.infer<typeof ResponseSchema> & { demo?: boolean };
+export type GenerateResponse = z.infer<typeof ResponseSchema> & { demo?: boolean; notice?: string };

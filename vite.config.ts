@@ -1,8 +1,8 @@
-import { defineConfig, type Plugin } from 'vite';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // Lets `npm run dev` serve /api/generate locally, the same handler Vercel runs in production.
-function localApi(): Plugin {
+function localApi(env: Record<string, string>): Plugin {
   return {
     name: 'local-api',
     configureServer(server) {
@@ -12,7 +12,7 @@ function localApi(): Plugin {
         req.on('end', async () => {
           const { generate } = await server.ssrLoadModule('/lib/core.ts');
           try {
-            const result = await generate(JSON.parse(body || '{}'), process.env);
+            const result = await generate(JSON.parse(body || '{}'), { ...process.env, ...env });
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(result));
           } catch (e: any) {
@@ -26,4 +26,7 @@ function localApi(): Plugin {
   };
 }
 
-export default defineConfig({ plugins: [react(), localApi()] });
+// loadEnv reads .env; the third argument '' loads all variables, not only VITE_ ones.
+export default defineConfig(({ mode }) => ({
+  plugins: [react(), localApi(loadEnv(mode, process.cwd(), ''))],
+}));
