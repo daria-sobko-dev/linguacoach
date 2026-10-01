@@ -2,7 +2,7 @@
 
 Paste any text in the language you are learning. LinguaCoach picks the words that match your CEFR level and turns them into flashcards and a short quiz.
 
-**Live demo:** https://YOUR-PROJECT.vercel.app
+**Live demo:** https://linguacoach-kappa.vercel.app/
 
 ![Flashcards](public/screenshot-cards.png)
 ![Quiz](public/screenshot-quiz.png)
